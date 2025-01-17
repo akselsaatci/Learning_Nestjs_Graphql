@@ -1,0 +1,67 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Car {
+  _id: String!
+  brand: String!
+  model: String!
+  year: String!
+}
+
+type User {
+  _id: String!
+  name: String!
+  email: String!
+  password: String!
+  cars: [Car!]!
+}
+
+type AccessTokenResponse {
+  access_token: String!
+}
+
+type Query {
+  getHello: String!
+  cars: [Car!]!
+  car(id: Int!): Car!
+}
+
+type Mutation {
+  login(loginInput: LoginInput!): AccessTokenResponse!
+  register(registerInput: RegisterInput!): AccessTokenResponse!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: String!): User!
+  createCar(createCarInput: CreateCarInput!): Car!
+  updateCar(updateCarInput: UpdateCarInput!): Car!
+  removeCar(id: Int!): Car!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input RegisterInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  password: String
+  _id: String!
+}
+
+input CreateCarInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateCarInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
